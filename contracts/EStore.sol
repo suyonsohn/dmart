@@ -34,4 +34,8 @@ contract EStore {
         productIdInStore[productIndex] = msg.sender;    
     }
     
+    function getProduct(uint _productId) public view returns (uint, string, string, string, string, uint, uint, ProductCondition, address) {
+        Product memory product = stores[productIdInStore[_productId]][_productId];
+        return (product.id, product.name, product.category, product.imageLink, product.descLink, product.createdAt, product.price, product.condition, product.buyer);
+    }
 }
