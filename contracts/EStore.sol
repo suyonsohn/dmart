@@ -6,7 +6,7 @@ contract EStore {
     
     uint public productIndex;
     
-    // Look up products by seller's address
+    // Look up product by seller's address
     mapping (address => mapping (uint => Product)) stores;
     // Look up seller by product id
     mapping (uint => address) productIdInStore;
@@ -19,11 +19,19 @@ contract EStore {
         string descLink;
         uint createdAt;
         uint price;
+        ProductCondition condition;
         address buyer;
     }
     
     constructor() public {
         productIndex = 0;
+    }
+
+    function addProductToStore(string _name, string _category, string _imageLink, string _descLink, uint _createdAt, uint _price, uint _condition) public {
+        productIndex += 1;
+        Product memory product = Product(productIndex, _name, _category, _imageLink, _descLink, _createdAt, _price, ProductCondition(_condition), 0);
+        stores[msg.sender][productIndex] = product;
+        productIdInStore[productIndex] = msg.sender;    
     }
     
 }
