@@ -1,0 +1,14 @@
+{
+    "name": "dmart",
+    "version": "1.0.0",
+    "description": "decentralized marketplace",
+    "main": "truffle.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}
